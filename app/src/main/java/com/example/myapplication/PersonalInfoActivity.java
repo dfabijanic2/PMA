@@ -36,7 +36,7 @@ public class PersonalInfoActivity extends AppCompatActivity {
             EditText birthDateLayout = (EditText) findViewById(R.id.txtBirthDate);
             String birthDate = birthDateLayout.getText().toString();
 
-            PersonalInfo personalInfo = new PersonalInfo(firstName, lastName, birthDate);
+            PersonalInfo personalInfo = new PersonalInfo(firstName, lastName, birthDate, null);
 
             Intent i = new Intent(this, StudentInfoActivity.class);
             i.putExtra("personal_info", personalInfo);

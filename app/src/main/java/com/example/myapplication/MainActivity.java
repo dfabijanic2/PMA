@@ -36,7 +36,7 @@ public class MainActivity extends Activity {
         Button btnStart = (Button) findViewById(R.id.btnStart);
         btnStart.setOnClickListener(v -> {
 
-            Intent i = new Intent(this, PersonalInfoActivity.class);
+            Intent i = new Intent(this, CreateNewRecordActivity.class);
             startActivity(i);
         });
     }

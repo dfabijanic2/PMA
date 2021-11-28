@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.StudentInfoFragment">
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+       <LinearLayout
+           android:id="@+id/profesorNameLayout"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           android:layout_marginTop="16dp"
+           android:layout_marginLeft="16dp"
+           android:layout_marginRight="16dp"
+           android:weightSum="1"
+           >
+           <com.google.android.material.textfield.TextInputLayout
+               android:layout_weight="0.5"
+               android:id="@+id/txtProfesorFirstName"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               app:layout_constraintEnd_toStartOf="@id/txtLastName"
+               app:layout_constraintStart_toStartOf="parent">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="Ime" />
+
+           </com.google.android.material.textfield.TextInputLayout>
+
+           <com.google.android.material.textfield.TextInputLayout
+               android:id="@+id/txtProfesorLastName"
+               android:layout_weight="0.5"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toEndOf="@+id/txtFirstName">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="Prezime" />
+           </com.google.android.material.textfield.TextInputLayout>
+       </LinearLayout>
+
+       <View
+           android:layout_width="match_parent"
+           android:layout_height="1dp"
+           android:background="@android:color/darker_gray"
+           app:layout_constraintBottom_toTopOf="@+id/profesorNameLayout"
+           android:layout_marginBottom="16dp"/>
+
+       <LinearLayout
+           android:id="@+id/classLayout"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/profesorNameLayout"
+           android:layout_marginTop="16dp"
+           android:layout_marginLeft="16dp"
+           android:layout_marginRight="16dp"
+           android:weightSum="1"
+           >
+           <com.google.android.material.textfield.TextInputLayout
+               android:layout_weight="0.5"
+               android:id="@+id/txtClassName"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               app:layout_constraintEnd_toStartOf="@id/txtAcademYear"
+               app:layout_constraintStart_toStartOf="parent">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="Naziv premeta" />
+
+           </com.google.android.material.textfield.TextInputLayout>
+
+           <com.google.android.material.textfield.TextInputLayout
+               android:id="@+id/txtAcademYear"
+               android:layout_weight="0.5"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toEndOf="@+id/txtClassName">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="Akadmeska godina" />
+           </com.google.android.material.textfield.TextInputLayout>
+       </LinearLayout>
+
+       <View
+           android:layout_width="match_parent"
+           android:layout_height="1dp"
+           android:background="@android:color/darker_gray"
+           app:layout_constraintBottom_toTopOf="@+id/profesorNameLayout"
+           android:layout_marginBottom="16dp"/>
+
+       <LinearLayout
+           android:id="@+id/classInfoLayout"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/classLayout"
+           android:layout_marginTop="16dp"
+           android:layout_marginLeft="16dp"
+           android:layout_marginRight="16dp"
+           android:weightSum="1"
+           >
+           <com.google.android.material.textfield.TextInputLayout
+               android:layout_weight="0.5"
+               android:id="@+id/txtClassHoursLection"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               app:layout_constraintEnd_toStartOf="@id/txtLastName"
+               app:layout_constraintStart_toStartOf="parent">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="Sati predavanja" />
+
+           </com.google.android.material.textfield.TextInputLayout>
+
+           <com.google.android.material.textfield.TextInputLayout
+               android:id="@+id/txtHoursLV"
+               android:layout_weight="0.5"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toEndOf="@+id/txtClassName">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="Sati LV-a" />
+           </com.google.android.material.textfield.TextInputLayout>
+       </LinearLayout>
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
