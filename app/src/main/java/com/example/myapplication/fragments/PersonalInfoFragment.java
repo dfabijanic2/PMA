@@ -23,10 +23,18 @@ import android.widget.ImageView;
 
 import com.example.myapplication.R;
 import com.example.myapplication.classes.PersonalInfo;
+import com.example.myapplication.models.ApiManager;
+import com.example.myapplication.models.Course;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 
 public class PersonalInfoFragment extends Fragment implements DataChangedListener {
 
@@ -37,6 +45,7 @@ public class PersonalInfoFragment extends Fragment implements DataChangedListene
     private EditText datum_rodenja;
     private ImageView selectedImage;
 
+
     public PersonalInfo PersonalInfo;
 
 
@@ -45,6 +54,7 @@ public class PersonalInfoFragment extends Fragment implements DataChangedListene
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_personal_info, container, false);
+
         return view;
     }
 

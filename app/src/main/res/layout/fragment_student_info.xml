@@ -73,20 +73,11 @@
            android:layout_marginRight="16dp"
            android:weightSum="1"
            >
-           <com.google.android.material.textfield.TextInputLayout
-               android:layout_weight="0.5"
-               android:id="@+id/txtClassName"
-               android:layout_width="0dp"
+           <Spinner
+               android:layout_width="match_parent"
                android:layout_height="wrap_content"
-               app:layout_constraintEnd_toStartOf="@id/txtAcademYear"
-               app:layout_constraintStart_toStartOf="parent">
-
-               <com.google.android.material.textfield.TextInputEditText
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:hint="Naziv premeta" />
-
-           </com.google.android.material.textfield.TextInputLayout>
+               android:id="@+id/spinnerClasses">
+           </Spinner>
 
            <com.google.android.material.textfield.TextInputLayout
                android:id="@+id/txtAcademYear"

@@ -10,19 +10,33 @@ import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import com.example.myapplication.R;
 import com.example.myapplication.classes.StudentInfo;
+import com.example.myapplication.models.ApiManager;
+import com.example.myapplication.models.Course;
+import com.example.myapplication.models.CourseResponse;
 import com.google.android.material.textfield.TextInputLayout;
 
-public class StudentInfoFragment extends Fragment implements DataChangedListener {
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class StudentInfoFragment extends Fragment implements DataChangedListener, Callback<CourseResponse> {
 
     private TextInputLayout firstName;
     private TextInputLayout lastName;
-    private TextInputLayout className;
+    private Spinner className;
     private TextInputLayout academYear;
     private TextInputLayout hoursLection;
     private TextInputLayout hoursLV;
+
+
+    CourseResponse courses = new CourseResponse();
 
     public StudentInfo StudentInfo;
 
@@ -32,7 +46,7 @@ public class StudentInfoFragment extends Fragment implements DataChangedListener
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_student_info, container, false);
 
-
+        ApiManager.getInstance().service().getCourses().enqueue(this); //asinkroni poziv
 
         return view;
     }
@@ -45,7 +59,15 @@ public class StudentInfoFragment extends Fragment implements DataChangedListener
         className = view.findViewById(R.id.txtClassName);
         academYear = view.findViewById(R.id.txtAcademYear);
         hoursLection = view.findViewById(R.id.txtClassHoursLection);
+        className = view.findViewById(R.id.spinnerClasses);
         hoursLV = view.findViewById(R.id.txtHoursLV);
+
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<String> adapter = new ArrayAdapter<courses>(getActivity(),
+                android.R.layout.simple_spinner_item, courses);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+// Apply the adapter to the spinner
+        className.setAdapter(adapter);
     }
 
     @Override
@@ -57,4 +79,19 @@ public class StudentInfoFragment extends Fragment implements DataChangedListener
         }
 
     }
+
+    @Override
+    public void onResponse(Call<CourseResponse> call, Response<CourseResponse> response) {
+
+        if (response.isSuccessful() && response.body() != null){
+            courses=response.body();
+        }
+
+    }
+
+    @Override
+    public void onFailure(Call<CourseResponse> call, Throwable t) {
+        t.printStackTrace();
+    }
+
 }
