@@ -42,7 +42,6 @@ public class SummaryFragment extends Fragment implements Observer {
         datumRodenja = view.findViewById(R.id.txtPIBirthDate);
 
         imeProfesora = view.findViewById(R.id.txtSIFirstName);
-        prezimeProfesora = view.findViewById(R.id.txtSILastName);
         predmet = view.findViewById(R.id.txtSIClassName);
         akademskaGodina = view.findViewById(R.id.txtSIAcademyYear);
         satiPredavanja = view.findViewById(R.id.txtSIhoursLection);
@@ -65,7 +64,6 @@ public class SummaryFragment extends Fragment implements Observer {
             StudentInfo si = (StudentInfo) o;
             try {
                     imeProfesora.setText(si.firstName);
-                    prezimeProfesora.setText(si.lastName);
                     predmet.setText(si.className);
                     akademskaGodina.setText(si.academYear);
                     satiPredavanja.setText(si.hoursLection);
